@@ -2,6 +2,7 @@ import express, { Express, Response } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import chatRoutes from "./routes/chat.route.js";
+import uploadRoutes from "./routes/upload.route.js";
 
 import { errorHandler } from "./middleware/errorHandler.js";
 
@@ -17,6 +18,8 @@ app.get("/ping", (_, res: Response) => {
 });
 
 app.use("/api", chatRoutes);
+app.use("/api", uploadRoutes);
+
 app.use(errorHandler);
 
 const PORT = process.env.PORT;
